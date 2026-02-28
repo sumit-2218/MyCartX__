@@ -1,49 +1,90 @@
-🛒 MyCartX – E-Commerce Web Application
+🛒 MyCartX – E-Commerce Backend Project
 
-MyCartX is a simple full-stack e-commerce web application developed using Spring Boot and web technologies. The project demonstrates core concepts of backend development, REST APIs, database integration, and responsive frontend design.
+📌 Project Overview
+
+MyCartX is a simple e-commerce backend application built using Spring Boot.
+It provides REST APIs for:
+	•	User Registration & Login
+	•	Admin Login
+	•	Product Management
+	•	Cart Management
+
+The backend is connected to a MySQL database and communicates with a frontend built using HTML, CSS, and JavaScript.
 
 ⸻
 
-🎯 Objective
+🏗 Architecture
 
-To design and develop an e-commerce system that allows users to:
-	•	Register and login securely
-	•	Browse products
+The project follows Layered Architecture:
+
+Frontend
+→ Controller Layer
+→ Service Layer
+→ Repository Layer
+→ Database (MySQL)
+
+It uses:
+	•	Spring Boot
+	•	Spring Data JPA
+	•	Hibernate
+	•	MySQL
+	•	REST APIs
+
+⸻
+
+🚀 Features
+
+👤 User Features
+	•	Register as user
+	•	Login
+	•	View products
 	•	Add products to cart
-	•	View and manage cart items
+	•	View cart items
+
+🛠 Admin Features
+	•	Admin registration
+	•	Admin login
+	•	Add products
+	•	Manage products
 
 ⸻
 
-🛠 Technologies Used
-	•	Frontend: HTML, CSS, JavaScript
-	•	Backend: Java, Spring Boot
-	•	Database: MySQL
-	•	Tools: Maven, Ngrok, GitHub
+🗂 Project Structure
+
+controller   → Handles HTTP requests
+service      → Business logic
+repository   → Database operations
+model        → Entity classes
+dto          → Custom response objects
+static       → Frontend (HTML, CSS, JS)
+
+
+
+💾 Database Tables
+	•	users
+	•	products
+	•	cart
 
 ⸻
 
-🔑 Key Features
-	•	User authentication with encrypted passwords
-	•	Product listing on dashboard
-	•	Add to cart functionality
-	•	Cart page with quantity update and remove option
-	•	Responsive design for mobile and desktop
+🔧 Technologies Used
+	•	Java
+	•	Spring Boot
+	•	Spring Data JPA
+	•	Hibernate
+	•	MySQL
+	•	HTML / CSS / JavaScript
 
 ⸻
 
-⚙️ System Workflow
-	1.	User registers and logs in
-	2.	Products are displayed on the home page
-	3.	User adds products to cart
-	4.	Cart data is stored and fetched from database
-	5.	Cart page shows selected items with total price
+▶ How to Run the Project
+	1.	Clone the repository
+	2.	Configure MySQL database in application.properties
+	3.	Run the Spring Boot application
+	4.	Open browser:   http://localhost:8080/home.html
 
-⸻
+	
+👨‍💻 Developer
 
-📌 Conclusion
-
-This project helped in understanding real-world implementation of:
-	•	Spring Boot REST APIs
-	•	Database operations using JPA
-	•	Frontend-backend integration
-	•	Session handling using localStorage
+SUMIT KUMAR
+B.Tech CSE Student
