@@ -16,9 +16,16 @@
       <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required style="margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
       <input type="text" name="phone" id="phone" placeholder="Phone Number" style="margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
       <input type="text" name="address" id="address" placeholder="Address" style="margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+      <select name="role" id="role" required style="margin: 10px 0; padding: 12px; border: 1px solid #ccc; border-radius: 8px;">
+        <option value="">Select Role</option>
+        <option value="USER">Register as User</option>
+        <option value="ADMIN">Register as Admin</option>
+      </select>
       <button type="submit" style="background: #007bff; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: 10px; transition: background 0.3s;">Register</button>
     </form>
     <p style="margin-top: 20px;">Already have an account? <a href="login.html" style="color: #007bff; text-decoration: none;">Login</a></p>
+  </div>
+  <p style="margin-top: 20px;">Already have an account? <a href="admin-login.html" style="color: #007bff; text-decoration: none;">admin Login</a></p>
   </div>
   <script src="js/register.js"></script>
 </body>

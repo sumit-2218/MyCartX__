@@ -28,7 +28,12 @@ public class AuthController {
         // Hash the password before saving
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        // Save user (includes phone and address)
+        // 🔥 Set role (default USER if not provided)
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole("USER");
+        }
+
+        // Save user (includes phone, address, and role)
         userRepo.save(user);
 
         return ResponseEntity.ok("Registration successful");

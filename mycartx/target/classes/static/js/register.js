@@ -7,6 +7,7 @@ document.querySelector("#registerForm").addEventListener("submit", function(e) {
   const confirmPassword = document.querySelector("#confirmPassword").value;
   const phone = document.querySelector("#phone").value.trim();
   const address = document.querySelector("#address").value.trim();
+  const role = document.querySelector("#role").value;
 
   if (password !== confirmPassword) {
     alert("Passwords do not match!");
@@ -18,7 +19,8 @@ document.querySelector("#registerForm").addEventListener("submit", function(e) {
     email: email,
     password: password,
     phone: phone,
-    address: address
+    address: address,
+    role: role
   };
 
   fetch("https://aetiological-confarreate-lyle.ngrok-free.dev/api/auth/register", {
@@ -44,7 +46,11 @@ document.querySelector("#registerForm").addEventListener("submit", function(e) {
         }
 
         // Redirect user to profile page so they can see their info immediately
-        window.location.href = "login.html";
+        if (role === "ADMIN") {
+          window.location.href = "admin-login.html";
+        } else {
+          window.location.href = "login.html";
+        }
       } else {
         // If registration was not successful, stay on register page (or go to login as before)
         // Currently we don't change page in that case.

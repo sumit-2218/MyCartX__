@@ -22,11 +22,11 @@ document.querySelector("#loginForm").addEventListener("submit", function (e) {
     })
     .then(data => {
       // Save user info in localStorage
-      localStorage.setItem("user_id", data.id);
-      localStorage.setItem("user_name", data.name);
-      localStorage.setItem("user_email", data.email);
-      localStorage.setItem("user_phone", data.phone);
-      localStorage.setItem("user_address", data.address);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("userName", data.name);
+      localStorage.setItem("userEmail", data.email);
+      localStorage.setItem("userPhone", data.phone);
+      localStorage.setItem("userAddress", data.address);
 
       alert("Login Successful!");
       window.location.href = "home.html";

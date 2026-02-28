@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin – Add Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 600px;
+            
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #msg {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Add Product</h2>
+
+<form id="productForm">
+    <input type="text" id="name" placeholder="Product Name" required><br><br>
+    <input type="text" id="description" placeholder="Description" required><br><br>
+    <input type="number" id="price" placeholder="Price" required><br><br>
+    <input type="number" id="stock" placeholder="Stock" required><br><br>
+    <input type="text" id="imageUrl" placeholder="Image file name (iphone.jpg)" required><br><br>
+
+    <label>
+        <input type="checkbox" id="active" checked> Active
+    </label><br><br>
+
+    <!-- IMPORTANT: type="button" -->
+    <button type="button" onclick="addProduct()">Add Product</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+const API_BASE = "https://aetiological-confarreate-lyle.ngrok-free.dev";
+
+function addProduct() {
+    const product = {
+        name: document.getElementById("name").value,
+        description: document.getElementById("description").value,
+        price: parseFloat(document.getElementById("price").value),
+        stock: parseInt(document.getElementById("stock").value),
+        imageUrl: document.getElementById("imageUrl").value,
+        active: document.getElementById("active").checked
+    };
+
+    fetch(API_BASE + "/api/products", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(product)
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Failed to add product");
+        return res.json();
+    })
+    .then(data => {
+        document.getElementById("msg").innerText = "✅ Product added successfully";
+        console.log("Saved:", data);
+        document.getElementById("productForm").reset();
+    })
+    .catch(err => {
+        document.getElementById("msg").innerText = "❌ Error adding product";
+        console.error(err);
+    });
+}
+</script>
+
+</body>
+</html>
